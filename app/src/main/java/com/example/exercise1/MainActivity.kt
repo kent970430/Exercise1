@@ -37,17 +37,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun onCalculate(){
         val carPrice: EditText = findViewById(R.id.editTextCarPrice)
-        val price = carPrice.text.toString().toInt()
         val downPayment: EditText = findViewById(R.id.editTextDownPayment)
-        val dPayment = downPayment.text.toString().toInt()
         val loanPeriod: EditText = findViewById(R.id.editTextLoanPeriod)
-        val lPeriod = loanPeriod.text.toString().toInt()
         val interestRate: EditText = findViewById(R.id.editTextInterestRate)
-        val iRate = interestRate.text.toString().toDouble() / 100
 
-        val loan = price- dPayment
-        val interest = loan * iRate * lPeriod
-        val monthlyPayment = (loan + interest) / lPeriod / 12
+        val loan = carPrice.text.toString().toInt() - downPayment.text.toString().toInt()
+        val interest = loan * (interestRate.text.toString().toDouble() / 100) * loanPeriod.text.toString().toInt()
+        val monthlyPayment = (loan + interest) / loanPeriod.text.toString().toInt() / 12
 
         textLoan.text = loan.toString()
         textInterest.text = interest.toString()
