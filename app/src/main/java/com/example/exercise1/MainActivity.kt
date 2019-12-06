@@ -2,6 +2,7 @@ package com.example.exercise1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,8 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonReset.setOnClickListener { onReset() }
-        buttonCalculate.setOnClickListener { onCalculate() }
+        val btnReset: Button = findViewById(R.id.buttonReset)
+        btnReset.setOnClickListener { onReset() }
+
+        val btnCalculate: Button = findViewById(R.id.buttonCalculate)
+        btnCalculate.setOnClickListener { onCalculate() }
     }
 
     private fun onReset(){
